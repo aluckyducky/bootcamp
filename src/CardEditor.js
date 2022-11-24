@@ -1,4 +1,5 @@
 import React from "react";
+import './CardEditor.css';
 
 class CardEditor extends React.Component {
     render() {
