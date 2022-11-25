@@ -9,7 +9,19 @@ class CardViewer extends React.Component {
 
     handleCardClick = () => {
         this.setState({ onFront: !this.state.onFront })
-    }
+    };
+
+    prevClick = () => {
+        if (this.state.index > 0) {
+            this.setState({index: this.state.index - 1});
+        }
+    };
+
+    nextClick = () => {
+        if (this.state.index < this.props.cards.length) {
+            this.setState({index: this.state.index + 1});
+        }
+    };
 
     render() {
         // const currentCard = onFront => {
@@ -31,12 +43,17 @@ class CardViewer extends React.Component {
         return (
             <div>
                 <h2>Card Viewer</h2>
-                <p onClick={this.handleCardClick}>
+                <p id="card" onClick={this.handleCardClick}>
                     {cardFront 
                         ? this.props.cards[index].front
                         : this.props.cards[index].back
                     }
                 </p>
+                <div id="card-flipper">
+                    <button disabled={this.state.index == 0} onClick={this.prevClick}>Previous Card</button>
+                    <p id="counter">Counter</p>
+                    <button disabled={this.state.index == this.props.cards.length - 1} onClick={this.nextClick}>Next Card</button>
+                </div>
                 <hr/>
                 <button onClick={this.props.switchMode}>Go to card editor</button>
             </div>
