@@ -14,7 +14,11 @@ class CardEditor extends React.Component {
         }
     };
 
-    deleteCard = index => this.props.deleteCard(index);
+    deleteCard = index => {
+        if (this.props.cards.length > 1) {
+            this.props.deleteCard(index);
+        }
+    }
 
     handleChange = event => this.setState({ [event.target.name]: event.target.value });
 
