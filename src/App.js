@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import CardEditor from './CardEditor';
 import React from 'react';
 import CardViewer from './CardViewer';
+import Homepage from './Homepage';
 
 import { Route, Routes } from 'react-router-dom';
 
@@ -31,6 +32,10 @@ class App extends React.Component {
     return (
       <Routes>
         <Route 
+          path="/"
+          element={<Homepage/>}
+        />
+        <Route 
           path="/editor"
           element={
             <CardEditor 
@@ -40,7 +45,10 @@ class App extends React.Component {
             />
           }
         />
-        <Route path="/viewer" element={<CardViewer cards={this.state.cards}/>}/>
+        <Route 
+          path="/viewer" 
+          element={<CardViewer cards={this.state.cards}/>}
+        />
       </Routes>
     );
   }
