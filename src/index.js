@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
 
 import { Provider } from 'react-redux'
-import firebase from 'firebase/app'
+import firebase from 'firebase/compat/app'
 import { createStore, combineReducers } from 'redux'
 import {
   ReactReduxFirebaseProvider,
@@ -32,7 +32,7 @@ const rootReducer = combineReducers({
 })
 
 // Create store with reducers and initial state
-const store = createStore(rootReducer, initialState)
+const store = createStore(rootReducer)
 
 // react-redux-firebase config
 const rrfConfig = {
